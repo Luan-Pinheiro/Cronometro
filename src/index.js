@@ -30,9 +30,9 @@ function medidasMarcas() {
 
     }
 
-    document.getElementById("hours").innerHTML = horas + " : ";
-    document.getElementById("minutes").innerHTML = minutos + " : ";
-    document.getElementById("seconds").innerHTML = segundos;
+    document.getElementById("hours").innerHTML = horas.toString().padStart(2, '0') + " : ";
+    document.getElementById("minutes").innerHTML = minutos.toString().padStart(2, '0') + " : ";
+    document.getElementById("seconds").innerHTML = segundos.toString().padStart(2, '0');
 }
 
 /*function zerarTodos(marca1, marca2, marca3) {
