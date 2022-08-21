@@ -7,24 +7,26 @@ let segundos = 0;
 
 // Main ------------------------------------------------------------------------
 
-function zerar(marca) {
-    marca = 0;
-}
+/*function zerar(marca) {
+    marca = 0
+    return marca;
+}*/
 
 function medidasMarcas() {
     segundos++;
-    if (segundos === 60) {
-        zerar(segundos);
+    if (segundos == 60) {
+        segundos = 0;
         minutos++;
 
-        if (minutos === 60) {
-            zerar(minutos);
+        if (minutos == 60) {
+            minutos=0;
             horas++;
+            if (horas == 23 && minutos == 59 && segundos == 59) 
+                reiniciar();
+        
         }
 
-        if (horas === 23 && minutos === 59 && segundos === 59) {
-            reiniciar();
-        }
+        
     }
 
     document.getElementById("hours").innerHTML = horas + " : ";
@@ -32,20 +34,20 @@ function medidasMarcas() {
     document.getElementById("seconds").innerHTML = segundos;
 }
 
-function zerarTodos(marca1, marca2, marca3) {
-    marca1 = marca2 = marca3 = 0;
-}
+/*function zerarTodos(marca1, marca2, marca3) {
+    return marca1, marca2, marca3;
+}*/
 
 // API -------------------------------------------------------------------------
 
 function reiniciar() {
-    clearInterval(interval);
-    zerarTodos(horas, minutos, segundos);
+    parar();
+    horas = minutos = segundos = 0;
     iniciar();
 }
 
 function iniciar() {
-    interval = setInterval(medidasMarcas, 1000);
+    interval = setInterval(medidasMarcas, 1);
 }
 
 function parar() {
