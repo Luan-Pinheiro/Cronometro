@@ -15,6 +15,10 @@ body {
 
 /* Cronometro */
 
+#logo {
+    width: 150px;
+}
+
 main {
     margin: 0 auto;
     max-width: 600px;
@@ -32,14 +36,12 @@ main {
     height: max-content;
     background: #19232f;
     padding: 40px 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
-
-.chronometer-display {}
 
 .chronometer-display span {
     color: #fff;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     text-align: center;
 }
@@ -47,7 +49,6 @@ main {
 .chronometer-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 2rem;
     gap: 10px
 }
 
@@ -61,4 +62,9 @@ main {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 700;
+    transition: all 500ms ease;
+}
+
+.chronometer-buttons button:hover {
+    background: #2c3c6e;
 }
