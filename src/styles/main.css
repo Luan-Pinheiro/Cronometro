@@ -1,5 +1,11 @@
 * {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
 }
 
 html,
@@ -12,6 +18,10 @@ body {
 main {
     margin: 0 auto;
     max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .chronometer-container {
@@ -19,8 +29,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background: red;
+    height: max-content;
+    background: #19232f;
+    padding: 40px 20px;
+    border-radius: 10px;
 }
 
 .chronometer-display {}
@@ -33,21 +45,20 @@ main {
 }
 
 .chronometer-buttons {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-top: 2rem;
+    gap: 10px
 }
 
 .chronometer-buttons button {
-    background: #fff;
-    border: 0;
-    border-radius: 50%;
-    color: #131b26;
+    background: #23305d;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
     cursor: pointer;
-    font-size: 2rem;
+    text-transform: uppercase;
     font-weight: 700;
-    height: 100px;
-    margin: 0 1rem;
-    outline: 0;
-    width: 100px;
 }
