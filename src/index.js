@@ -1,6 +1,11 @@
+// Internal state --------------------------------------------------------------
+
+let interval = undefined;
 let horas = 0;
 let minutos = 0;
 let segundos = 0;
+
+// Main ------------------------------------------------------------------------
 
 function zerar(marca) {
     marca = 0;
@@ -21,9 +26,10 @@ function medidasMarcas() {
             reiniciar();
         }
     }
-    getElementbyId("hours").innerHTML = horas + " : ";
-    getElementbyId("minutes").innerHTML = minutos + " : ";
-    getElementbyId("seconds").innerHTML = segundos;
+
+    document.getElementById("hours").innerHTML = horas + " : ";
+    document.getElementById("minutes").innerHTML = minutos + " : ";
+    document.getElementById("seconds").innerHTML = segundos;
 }
 
 function zerarTodos(marca1, marca2, marca3) {
@@ -33,17 +39,17 @@ function zerarTodos(marca1, marca2, marca3) {
 // API -------------------------------------------------------------------------
 
 function reiniciar() {
-    clearInterval(intervalo);
+    clearInterval(interval);
     zerarTodos(horas, minutos, segundos);
     iniciar();
 }
 
 function iniciar() {
-    intervalo = setInterval(medidasMarcas, 1000);
+    interval = setInterval(medidasMarcas, 1000);
 }
 
 function parar() {
-    clearInterval(intervalo);
+    clearInterval(interval);
 }
 
 export const chronometer = {
