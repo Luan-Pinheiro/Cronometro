@@ -1,28 +1,23 @@
 // Internal state --------------------------------------------------------------
 
-let interval = undefined;
-let horas = 0;
-let minutos = 0;
-let segundos = 0;
+let _interval = undefined;
+let _hours = 0;
+let _minutes = 0;
+let _seconds = 0;
 let _isRunning = false;
 
 // Main ------------------------------------------------------------------------
 
-/*function zerar(marca) {
-    marca = 0
-    return marca;
-}*/
+function update() {
+    _seconds++;
+    if (_seconds == 60) {
+        _seconds = 0;
+        _minutes++;
 
-function medidasMarcas() {
-    segundos++;
-    if (segundos == 60) {
-        segundos = 0;
-        minutos++;
-
-        if (minutos == 60) {
-            minutos = 0;
-            horas++;
-            if (horas == 23 && minutos == 59 && segundos == 59)
+        if (_minutes == 60) {
+            _minutes = 0;
+            _hours++;
+            if (_hours == 23 && _minutes == 59 && _seconds == 59)
                 reiniciar();
 
         }
@@ -30,32 +25,29 @@ function medidasMarcas() {
 
     }
 
-    document.getElementById("hours").innerHTML = horas.toString().padStart(2, '0') + " : ";
-    document.getElementById("minutes").innerHTML = minutos.toString().padStart(2, '0') + " : ";
-    document.getElementById("seconds").innerHTML = segundos.toString().padStart(2, '0');
+    document.getElementById("hours").innerHTML = _hours.toString().padStart(2, '0');
+    document.getElementById("minutes").innerHTML = _minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").innerHTML = _seconds.toString().padStart(2, '0');
 }
 
-/*function zerarTodos(marca1, marca2, marca3) {
-    return marca1, marca2, marca3;
-}*/
 
 // API -------------------------------------------------------------------------
 
 function reiniciar() {
     parar();
-    horas = minutos = segundos = 0;
+    _hours = _minutes = _seconds = 0;
     iniciar();
 }
 
 function iniciar() {
     if (_isRunning) return;
     _isRunning = true;
-    interval = setInterval(medidasMarcas, 1000);
+    _interval = setInterval(update, 1000);
 }
 
 function parar() {
     _isRunning = false;
-    clearInterval(interval);
+    clearInterval(_interval);
 }
 
 export const chronometer = {
