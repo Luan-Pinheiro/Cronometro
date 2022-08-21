@@ -6,3 +6,48 @@ html,
 body {
     background: #131b26;
 }
+
+/* Cronometro */
+
+main {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.chronometer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: red;
+}
+
+.chronometer-display {}
+
+.chronometer-display span {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.chronometer-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.chronometer-buttons button {
+    background: #fff;
+    border: 0;
+    border-radius: 50%;
+    color: #131b26;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+    height: 100px;
+    margin: 0 1rem;
+    outline: 0;
+    width: 100px;
+}
