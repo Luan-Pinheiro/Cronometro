@@ -4,6 +4,7 @@ let interval = undefined;
 let horas = 0;
 let minutos = 0;
 let segundos = 0;
+let _isRunning = false;
 
 // Main ------------------------------------------------------------------------
 
@@ -19,14 +20,14 @@ function medidasMarcas() {
         minutos++;
 
         if (minutos == 60) {
-            minutos=0;
+            minutos = 0;
             horas++;
-            if (horas == 23 && minutos == 59 && segundos == 59) 
+            if (horas == 23 && minutos == 59 && segundos == 59)
                 reiniciar();
-        
+
         }
 
-        
+
     }
 
     document.getElementById("hours").innerHTML = horas + " : ";
@@ -47,10 +48,13 @@ function reiniciar() {
 }
 
 function iniciar() {
-    interval = setInterval(medidasMarcas, 1);
+    if (_isRunning) return;
+    _isRunning = true;
+    interval = setInterval(medidasMarcas, 1000);
 }
 
 function parar() {
+    _isRunning = false;
     clearInterval(interval);
 }
 
