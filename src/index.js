@@ -34,7 +34,6 @@ function update() {
 // API -------------------------------------------------------------------------
 
 function reiniciar() {
-    parar();
     _hours = _minutes = _seconds = 0;
     iniciar();
 }
